@@ -1,0 +1,118 @@
+{
+    "info": {
+        "_postman_id": "70929eaa-6887-4aa7-9b24-7ed5f4d8e58f",
+        "name": "Interest-Based Feed API",
+        "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+    },
+    "item": [
+        {
+            "name": "Get User Feed",
+            "request": {
+                "method": "GET",
+                "header": [],
+                "url": {
+                    "raw": "http://localhost:5000/feed/U1?page=1&limit=10",
+                    "protocol": "http",
+                    "host": [
+                        "localhost"
+                    ],
+                    "port": "5000",
+                    "path": [
+                        "feed",
+                        "U1"
+                    ],
+                    "query": [
+                        {
+                            "key": "page",
+                            "value": "1"
+                        },
+                        {
+                            "key": "limit",
+                            "value": "10"
+                        }
+                    ]
+                }
+            },
+            "response": []
+        },
+        {
+            "name": "Get User Score",
+            "request": {
+                "method": "GET",
+                "header": [],
+                "url": {
+                    "raw": "http://localhost:5000/user/U1/score",
+                    "protocol": "http",
+                    "host": [
+                        "localhost"
+                    ],
+                    "port": "5000",
+                    "path": [
+                        "user",
+                        "U1",
+                        "score"
+                    ]
+                }
+            },
+            "response": []
+        },
+        {
+            "name": "Record View",
+            "request": {
+                "method": "POST",
+                "header": [
+                    {
+                        "key": "Content-Type",
+                        "value": "application/json"
+                    }
+                ],
+                "body": {
+                    "mode": "raw",
+                    "raw": "{\n    \"userId\": \"U1\",\n    \"feedId\": \"REPLACE_WITH_FEED_ID\"\n}"
+                },
+                "url": {
+                    "raw": "http://localhost:5000/activity/view",
+                    "protocol": "http",
+                    "host": [
+                        "localhost"
+                    ],
+                    "port": "5000",
+                    "path": [
+                        "activity",
+                        "view"
+                    ]
+                }
+            },
+            "response": []
+        },
+        {
+            "name": "Record Like",
+            "request": {
+                "method": "POST",
+                "header": [
+                    {
+                        "key": "Content-Type",
+                        "value": "application/json"
+                    }
+                ],
+                "body": {
+                    "mode": "raw",
+                    "raw": "{\n    \"userId\": \"U1\",\n    \"feedId\": \"REPLACE_WITH_FEED_ID\"\n}"
+                },
+                "url": {
+                    "raw": "http://localhost:5000/activity/like",
+                    "protocol": "http",
+                    "host": [
+                        "localhost"
+                    ],
+                    "port": "5000",
+                    "path": [
+                        "activity",
+                        "like"
+                    ]
+                }
+            },
+            "response": []
+        }
+    ]
+}
