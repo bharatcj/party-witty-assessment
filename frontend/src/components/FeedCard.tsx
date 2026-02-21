@@ -11,6 +11,7 @@ interface FeedItem {
     category: string;
     content?: string;
     createdAt: string;
+    isLiked?: boolean;
 }
 
 interface Props {
@@ -28,7 +29,7 @@ const actionColors = {
 
 export const FeedCard: React.FC<Props> = ({ item, userId }) => {
     const { refreshScore } = useScore();
-    const [isLiked, setIsLiked] = useState(false);
+    const [isLiked, setIsLiked] = useState(item.isLiked || false);
     const [hasViewed, setHasViewed] = useState(false);
     const [isActionLoading, setIsActionLoading] = useState(false);
 
