@@ -4,7 +4,7 @@ Welcome to the Interest-Based Scored Feed Application! This is a complete, produ
 
 This application creates a mock personalized social media feed based on a user's specific interests. As the user views, likes, comments, and shares posts, their interactions are automatically recorded in real-time to generate an Engagement Score.
 
-## 🛠️ Technology Stack
+## Technology Stack
 - **Frontend**: React 18, Vite, TypeScript, Tailwind CSS
 - **Backend**: Node.js, Express, TypeScript, MongoDB (with Mongoose ODM)
 
@@ -74,7 +74,7 @@ We need to fill your empty database with some fake posts and users!
    ```
 5. It will give you a local URL (usually `http://localhost:5173`). Ctrl+Click or copy that URL into your web browser.
 
-**🎉 Congratulations! You should now see the beautiful React Frontend in your browser!**
+**Congratulations! You should now see the beautiful React Frontend in your browser!**
 
 ---
 
