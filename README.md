@@ -12,8 +12,6 @@ This application creates a mock personalized social media feed based on a user's
 
 ## Step-by-Step Installation Guide
 
-Don't worry if you are new to this! Just follow these steps in order to get the project running perfectly on your Windows machine.
-
 ### Prerequisites
 Before we begin, you need to have:
 1. **Node.js**: Download and install the LTS version from [nodejs.org](https://nodejs.org/).
