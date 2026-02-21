@@ -113,6 +113,93 @@
                 }
             },
             "response": []
+        },
+        {
+            "name": "Unlike Post",
+            "request": {
+                "method": "POST",
+                "header": [
+                    {
+                        "key": "Content-Type",
+                        "value": "application/json"
+                    }
+                ],
+                "body": {
+                    "mode": "raw",
+                    "raw": "{\n    \"userId\": \"U1\",\n    \"feedId\": \"REPLACE_WITH_FEED_ID\"\n}"
+                },
+                "url": {
+                    "raw": "http://localhost:5000/activity/unlike",
+                    "protocol": "http",
+                    "host": [
+                        "localhost"
+                    ],
+                    "port": "5000",
+                    "path": [
+                        "activity",
+                        "unlike"
+                    ]
+                }
+            },
+            "response": []
+        },
+        {
+            "name": "Record Comment",
+            "request": {
+                "method": "POST",
+                "header": [
+                    {
+                        "key": "Content-Type",
+                        "value": "application/json"
+                    }
+                ],
+                "body": {
+                    "mode": "raw",
+                    "raw": "{\n    \"userId\": \"U1\",\n    \"feedId\": \"REPLACE_WITH_FEED_ID\"\n}"
+                },
+                "url": {
+                    "raw": "http://localhost:5000/activity/comment",
+                    "protocol": "http",
+                    "host": [
+                        "localhost"
+                    ],
+                    "port": "5000",
+                    "path": [
+                        "activity",
+                        "comment"
+                    ]
+                }
+            },
+            "response": []
+        },
+        {
+            "name": "Record Share",
+            "request": {
+                "method": "POST",
+                "header": [
+                    {
+                        "key": "Content-Type",
+                        "value": "application/json"
+                    }
+                ],
+                "body": {
+                    "mode": "raw",
+                    "raw": "{\n    \"userId\": \"U1\",\n    \"feedId\": \"REPLACE_WITH_FEED_ID\"\n}"
+                },
+                "url": {
+                    "raw": "http://localhost:5000/activity/share",
+                    "protocol": "http",
+                    "host": [
+                        "localhost"
+                    ],
+                    "port": "5000",
+                    "path": [
+                        "activity",
+                        "share"
+                    ]
+                }
+            },
+            "response": []
         }
     ]
 }
