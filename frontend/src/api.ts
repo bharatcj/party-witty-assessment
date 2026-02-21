@@ -19,4 +19,9 @@ export const recordActivity = async (userId: string, feedId: string, actionType:
     return res.data;
 };
 
+export const removeLike = async (userId: string, feedId: string) => {
+    const res = await api.post(`/activity/unlike`, { userId, feedId });
+    return res.data;
+};
+
 export default api;

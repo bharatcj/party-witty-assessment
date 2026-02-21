@@ -47,3 +47,31 @@ export const recordActivity = async (userId: string, feedId: string, actionType:
 
     return { message: `Activity ${actionType} recorded successfully`, scoreAdded: scoreToAdd };
 };
+
+export const removeLike = async (userId: string, feedId: string) => {
+    const user = await User.findOne({ userId });
+    if (!user) throw new Error('User not found');
+
+    const feedItem = await FeedItem.findById(feedId);
+    if (!feedItem) throw new Error('Feed item not found');
+
+    const existingLike = await Activity.findOne({ userId, feedId, actionType: 'like' });
+    if (!existingLike) {
+        return { message: 'Not liked yet' };
+    }
+
+    await Activity.deleteOne({ _id: existingLike._id });
+    const scoreToSubtract = actionScores['like'];
+
+    await User.findOneAndUpdate(
+        { userId },
+        {
+            $inc: {
+                totalScore: -scoreToSubtract,
+                [`scoreBreakdown.like`]: -1,
+            },
+        }
+    );
+
+    return { message: 'Post unliked successfully', scoreSubtracted: scoreToSubtract };
+};

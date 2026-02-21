@@ -1,5 +1,5 @@
 import { Request, Response, NextFunction } from 'express';
-import { recordActivity } from '../services/activity.service';
+import { recordActivity, removeLike } from '../services/activity.service';
 import Joi from 'joi';
 import { ActionType } from '../models/Activity';
 
@@ -25,4 +25,21 @@ export const createActivity = (actionType: ActionType) => {
             next(error);
         }
     };
+};
+
+export const removeLikeActivity = async (req: Request, res: Response, next: NextFunction) => {
+    try {
+        const { error, value } = activitySchema.validate(req.body);
+        if (error) {
+            res.status(400).json({ message: error.details[0].message });
+            return;
+        }
+
+        const { userId, feedId } = value;
+        const result = await removeLike(userId, feedId);
+
+        res.json(result);
+    } catch (error) {
+        next(error);
+    }
 };

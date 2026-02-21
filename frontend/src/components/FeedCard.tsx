@@ -1,7 +1,7 @@
 import React, { useState, useEffect } from 'react';
 import { useInView } from 'react-intersection-observer';
 import { Heart, MessageCircle, Share2 } from 'lucide-react';
-import { recordActivity } from '../api';
+import { recordActivity, removeLike } from '../api';
 import { useScore } from '../context/ScoreContext';
 import toast from 'react-hot-toast';
 
@@ -55,16 +55,21 @@ export const FeedCard: React.FC<Props> = ({ item, userId }) => {
 
     const handleAction = async (action: 'like' | 'comment' | 'share') => {
         if (isActionLoading) return;
-        if (action === 'like' && isLiked) {
-            toast('Already liked!', { icon: 'ℹ️' });
-            return;
-        }
 
         try {
             setIsActionLoading(true);
 
             if (action === 'like') {
-                setIsLiked(true);
+                if (isLiked) {
+                    setIsLiked(false);
+                    await removeLike(userId, item._id);
+                    refreshScore();
+                    toast.success('Post unliked');
+                    setIsActionLoading(false);
+                    return;
+                } else {
+                    setIsLiked(true);
+                }
             }
 
             await recordActivity(userId, item._id, action);
@@ -74,7 +79,7 @@ export const FeedCard: React.FC<Props> = ({ item, userId }) => {
             if (action === 'share') toast.success('Post shared successfully!');
         } catch (error) {
             toast.error(`Failed to ${action}`);
-            if (action === 'like') setIsLiked(false);
+            if (action === 'like') setIsLiked(!isLiked);
         } finally {
             setIsActionLoading(false);
         }

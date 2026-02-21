@@ -10,7 +10,7 @@ This application creates a mock personalized social media feed based on a user's
 
 ---
 
-## Step-by-Step Installation Guide (For Beginners)
+## Step-by-Step Installation Guide
 
 Don't worry if you are new to this! Just follow these steps in order to get the project running perfectly on your Windows machine.
 
@@ -80,7 +80,8 @@ We need to fill your empty database with some fake posts and users!
 
 ## How to Use the App
 - **Scrolling**: As you scroll down the feed, cards that come into view will automatically trigger an API call to record a "View". You will see your Total Score increase automatically!
-- **Interactions**: Click the "Like", "Comment", and "Share" buttons. Notice how the Engagement Widget instantly updates, and "Liked" buttons are properly disabled for repeat clicks.
+- **Interactions**: Click the "Like", "Comment", and "Share" buttons. Notice how the Engagement Widget instantly updates.
+- **Unlike**: Clicking a fully-red "Like" button on an already liked post will unlike it, reducing your overall engagement score by 3 points automatically.
 - **Pagination**: Scroll to the very bottom and click "Load More" to test the database pagination.
 
 ---
@@ -92,6 +93,7 @@ If you are using Postman (a `postman_collection.json` file is included in this r
 - **GET `/feed/:userId?page=1&limit=10`**: Fetches paginated feed posts tailored to the user's interests.
 - **GET `/user/:userId/score`**: Fetches the total engagement score and a breakdown.
 - **POST `/activity/view`**: Records a view (payload: `{ "userId": "U1", "feedId": "..." }`).
-- **POST `/activity/like`**: Records a like.
-- **POST `/activity/comment`**: Records a comment.
-- **POST `/activity/share`**: Records a share.
+- **POST `/activity/like`**: Records a like (+3 points).
+- **POST `/activity/unlike`**: Un-records a like (-3 points).
+- **POST `/activity/comment`**: Records a comment (+4 points).
+- **POST `/activity/share`**: Records a share (+5 points).
