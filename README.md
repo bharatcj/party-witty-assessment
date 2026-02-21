@@ -1,6 +1,6 @@
 # Interest-Based Scored Feed Application
 
-Welcome to the Interest-Based Scored Feed Application! This is a complete, production-ready Full-Stack application containing a Node.js Backend and a React Frontend.
+Welcome to the Interest-Based Scored Feed Application! This is a complete Full-Stack application containing a Node.js Backend and a React Frontend.
 
 This application creates a mock personalized social media feed based on a user's specific interests. As the user views, likes, comments, and shares posts, their interactions are automatically recorded in real-time to generate an Engagement Score.
 
