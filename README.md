@@ -1,4 +1,4 @@
-# Interest-Based Scored Feed Application 🚀
+# Interest-Based Scored Feed Application
 
 Welcome to the Interest-Based Scored Feed Application! This is a complete, production-ready Full-Stack application containing a Node.js Backend and a React Frontend.
 
@@ -10,7 +10,7 @@ This application creates a mock personalized social media feed based on a user's
 
 ---
 
-## 💻 Step-by-Step Installation Guide (For Beginners)
+## Step-by-Step Installation Guide (For Beginners)
 
 Don't worry if you are new to this! Just follow these steps in order to get the project running perfectly on your Windows machine.
 
@@ -78,14 +78,14 @@ We need to fill your empty database with some fake posts and users!
 
 ---
 
-## 📘 How to Use the App
+## How to Use the App
 - **Scrolling**: As you scroll down the feed, cards that come into view will automatically trigger an API call to record a "View". You will see your Total Score increase automatically!
 - **Interactions**: Click the "Like", "Comment", and "Share" buttons. Notice how the Engagement Widget instantly updates, and "Liked" buttons are properly disabled for repeat clicks.
 - **Pagination**: Scroll to the very bottom and click "Load More" to test the database pagination.
 
 ---
 
-## 🔌 API Endpoints Documentation
+## API Endpoints Documentation
 
 If you are using Postman (a `postman_collection.json` file is included in this repository), here are the endpoints:
 
