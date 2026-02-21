@@ -4,7 +4,7 @@ const api = axios.create({
     baseURL: 'http://localhost:5000',
 });
 
-export const getFeed = async (userId: string, page = 1, limit = 10) => {
+export const getFeed = async (userId: string, page = 1, limit = 4) => {
     const res = await api.get(`/feed/${userId}`, { params: { page, limit } });
     return res.data;
 };

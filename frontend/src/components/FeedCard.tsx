@@ -76,6 +76,7 @@ export const FeedCard: React.FC<Props> = ({ item, userId }) => {
             await recordActivity(userId, item._id, action);
             refreshScore();
 
+            if (action === 'like') toast.success('Post liked!');
             if (action === 'comment') toast.success('Comment added: "Great post!"');
             if (action === 'share') toast.success('Post shared successfully!');
         } catch (error) {

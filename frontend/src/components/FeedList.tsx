@@ -16,7 +16,7 @@ export const FeedList: React.FC<Props> = ({ userId }) => {
 
     const fetchItems = async (pageToFetch: number) => {
         try {
-            const data = await getFeed(userId, pageToFetch, 10);
+            const data = await getFeed(userId, pageToFetch, 4);
 
             if (pageToFetch === 1) {
                 setItems(data.items);
@@ -24,7 +24,7 @@ export const FeedList: React.FC<Props> = ({ userId }) => {
                 setItems(prev => [...prev, ...data.items]);
             }
 
-            setHasMore(data.items.length === 10);
+            setHasMore(data.items.length === 4);
         } catch (error) {
             toast.error('Failed to load feed items');
         } finally {

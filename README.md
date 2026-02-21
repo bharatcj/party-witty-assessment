@@ -90,7 +90,7 @@ We need to fill your empty database with some fake posts and users!
 
 If you are using Postman (a `postman_collection.json` file is included in this repository), here are the endpoints:
 
-- **GET `/feed/:userId?page=1&limit=10`**: Fetches paginated feed posts tailored to the user's interests.
+- **GET `/feed/:userId?page=1&limit=4`**: Fetches paginated feed posts tailored to the user's interests.
 - **GET `/user/:userId/score`**: Fetches the total engagement score and a breakdown.
 - **POST `/activity/view`**: Records a view (payload: `{ "userId": "U1", "feedId": "..." }`).
 - **POST `/activity/like`**: Records a like (+3 points).

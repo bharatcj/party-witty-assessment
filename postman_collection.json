@@ -11,7 +11,7 @@
                 "method": "GET",
                 "header": [],
                 "url": {
-                    "raw": "http://localhost:5000/feed/U1?page=1&limit=10",
+                    "raw": "http://localhost:5000/feed/U1?page=1&limit=4",
                     "protocol": "http",
                     "host": [
                         "localhost"
@@ -28,7 +28,7 @@
                         },
                         {
                             "key": "limit",
-                            "value": "10"
+                            "value": "4"
                         }
                     ]
                 }
