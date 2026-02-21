@@ -79,7 +79,7 @@ We need to fill your empty database with some fake posts and users!
 ---
 
 ## How to Use the App
-- **Scrolling**: As you scroll down the feed, cards that come into view will automatically trigger an API call to record a "View". You will see your Total Score increase automatically!
+- **Viewing**: You must actively click on a post to open its exact details in a popup Modal. Upon successfully expanding the post, a "View" is registered and your Engagement Score is rewarded. Simple scrolling does not artificially inflate scores.
 - **Interactions**: Click the "Like", "Comment", and "Share" buttons. Notice how the Engagement Widget instantly updates.
 - **Unlike**: Clicking a fully-red "Like" button on an already liked post will unlike it, reducing your overall engagement score by 3 points automatically.
 - **Pagination**: Scroll to the very bottom and click "Load More" to test the database pagination.
