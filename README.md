@@ -25,7 +25,18 @@ Before we begin, you need to have:
 5. In the Security section, click **Network Access**, click Add IP Address, select **Allow access from anywhere** (`0.0.0.0/0`), and Save.
 6. Go back to your Cluster dashboard, click **Connect**, select **Drivers** (Node.js), and copy the long **Connection String** provided.
 
-### Step 2: Configure the Backend
+### Step 2: Clone the Repository
+1. Open up your terminal or command prompt.
+2. Run this command to download the project to your computer:
+   ```bash
+   git clone https://github.com/bharatcj/party-witty-assessment.git
+   ```
+3. Navigate into the newly created project folder:
+   ```bash
+   cd party-witty-assessment
+   ```
+
+### Step 3: Configure the Backend
 1. Open up your terminal or command prompt.
 2. Navigate into the `backend` folder:
    ```bash
@@ -40,7 +51,7 @@ Before we begin, you need to have:
    - *Important:* Replace `<password>` in the URL with the actual database password you created in Step 1.
    - *Important:* Add `/interest-feed` right before the `?` in the URL (this names your database).
 
-### Step 3: Seed (Populate) the Database with Data
+### Step 4: Seed (Populate) the Database with Data
 We need to fill your empty database with some fake posts and users!
 1. Make sure you are still in the `backend` folder in your terminal.
 2. Run this command:
@@ -49,14 +60,14 @@ We need to fill your empty database with some fake posts and users!
    ```
 3. If successful, you will see "Database seeded successfully!". Your cloud database now has data!
 
-### Step 4: Start the Backend Server
+### Step 5: Start the Backend Server
 1. In the exact same terminal, start your backend application:
    ```bash
    npm run dev
    ```
 2. It should say "MongoDB Connected" and "Server running on port 5000". Leave this terminal window open and running.
 
-### Step 5: Start the Frontend React App
+### Step 6: Start the Frontend React App
 1. Open a **second, brand new terminal window**.
 2. Navigate into the `frontend` folder:
    ```bash
