@@ -1,9 +1,11 @@
-import React, { useEffect } from 'react';
+import React from 'react';
 import { useScore } from '../context/ScoreContext';
-import { Activity, Eye, Heart, MessageCircle, Share2, TrendingUp } from 'lucide-react';
+import { Activity, Eye, Heart, MessageCircle, Share2, TrendingUp, Trash2 } from 'lucide-react';
+import { clearUserActivity } from '../api';
+import toast from 'react-hot-toast';
 
 export const ScoreWidget: React.FC = () => {
-    const { score, refreshScore } = useScore();
+    const { score } = useScore();
 
     if (!score) {
         return (
@@ -43,7 +45,7 @@ export const ScoreWidget: React.FC = () => {
                 <TrendingUp className="w-10 h-10 text-indigo-300" />
             </div>
 
-            <div className="space-y-4">
+            <div className="space-y-4 mb-6">
                 <h4 className="text-sm font-semibold text-slate-400 uppercase tracking-widest pl-1">Breakdown</h4>
                 <div className="space-y-3">
                     {statItems.map((item, index) => (
@@ -61,6 +63,23 @@ export const ScoreWidget: React.FC = () => {
                     ))}
                 </div>
             </div>
+
+            <button
+                onClick={async () => {
+                    try {
+                        const loadingToast = toast.loading('Clearing activity...');
+                        await clearUserActivity(score.userId);
+                        toast.success('Activity cleared successfully', { id: loadingToast });
+                        window.location.reload();
+                    } catch (error) {
+                        toast.error('Failed to clear activity');
+                    }
+                }}
+                className="w-full mt-4 flex items-center justify-center gap-2 py-3 px-4 bg-red-50 text-red-600 font-semibold rounded-xl hover:bg-red-100 transition-colors border border-red-100"
+            >
+                <Trash2 className="w-4 h-4" />
+                Clear My Activity
+            </button>
         </div>
     );
 };

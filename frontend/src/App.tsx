@@ -1,4 +1,4 @@
-import React from 'react';
+
 import { ScoreProvider } from './context/ScoreContext';
 import { ScoreWidget } from './components/ScoreWidget';
 import { FeedList } from './components/FeedList';

@@ -1,5 +1,5 @@
 import { Request, Response, NextFunction } from 'express';
-import { recordActivity, removeLike } from '../services/activity.service';
+import { recordActivity, removeLike, clearUserActivity } from '../services/activity.service';
 import Joi from 'joi';
 import { ActionType } from '../models/Activity';
 
@@ -38,6 +38,16 @@ export const removeLikeActivity = async (req: Request, res: Response, next: Next
         const { userId, feedId } = value;
         const result = await removeLike(userId, feedId);
 
+        res.json(result);
+    } catch (error) {
+        next(error);
+    }
+};
+
+export const clearActivity = async (req: Request, res: Response, next: NextFunction) => {
+    try {
+        const userId = req.params.userId as string;
+        const result = await clearUserActivity(userId);
         res.json(result);
     } catch (error) {
         next(error);

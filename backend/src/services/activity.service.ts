@@ -75,3 +75,26 @@ export const removeLike = async (userId: string, feedId: string) => {
 
     return { message: 'Post unliked successfully', scoreSubtracted: scoreToSubtract };
 };
+
+export const clearUserActivity = async (userId: string) => {
+    const user = await User.findOne({ userId });
+    if (!user) {
+        const err = new Error('User not found');
+        (err as any).status = 404;
+        throw err;
+    }
+
+    await Activity.deleteMany({ userId });
+
+    await User.findOneAndUpdate(
+        { userId },
+        {
+            $set: {
+                totalScore: 0,
+                scoreBreakdown: { view: 0, like: 0, comment: 0, share: 0 }
+            },
+        }
+    );
+
+    return { message: 'User activity cleared successfully' };
+};

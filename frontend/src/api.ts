@@ -1,7 +1,7 @@
 import axios from 'axios';
 
 const api = axios.create({
-    baseURL: 'http://localhost:5000',
+    baseURL: import.meta.env.VITE_API_URL || 'http://localhost:5000',
 });
 
 export const getFeed = async (userId: string, page = 1, limit = 4) => {
@@ -21,6 +21,11 @@ export const recordActivity = async (userId: string, feedId: string, actionType:
 
 export const removeLike = async (userId: string, feedId: string) => {
     const res = await api.post(`/activity/unlike`, { userId, feedId });
+    return res.data;
+};
+
+export const clearUserActivity = async (userId: string) => {
+    const res = await api.delete(`/activity/clear/${userId}`);
     return res.data;
 };
 
